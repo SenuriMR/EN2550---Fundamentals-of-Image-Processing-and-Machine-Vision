@@ -15475,7 +15475,7 @@ Epoch 3/3
 <span class="nb">print</span><span class="p">(</span><span class="n">new_model</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 
 
-<span class="n">new_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_images</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span><span class="n">verbose</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">new_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_images</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">verbose</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15497,14 +15497,14 @@ Epoch 3/3
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Model: &#34;model_4&#34;
+<pre>Model: &#34;model&#34;
 __________________________________________________________________________________________________
  Layer (type)                   Output Shape         Param #     Connected to                     
 ==================================================================================================
- input_3 (InputLayer)           [(None, 224, 224, 3  0           []                               
+ input_1 (InputLayer)           [(None, 224, 224, 3  0           []                               
                                 )]                                                                
                                                                                                   
- conv1_pad (ZeroPadding2D)      (None, 230, 230, 3)  0           [&#39;input_3[0][0]&#39;]                
+ conv1_pad (ZeroPadding2D)      (None, 230, 230, 3)  0           [&#39;input_1[0][0]&#39;]                
                                                                                                   
  conv1_conv (Conv2D)            (None, 112, 112, 64  9472        [&#39;conv1_pad[0][0]&#39;]              
                                 )                                                                 
@@ -15605,12 +15605,11 @@ ________________________________________________________________________________
  conv2_block3_2_relu (Activatio  (None, 28, 28, 64)  0           [&#39;conv2_block3_2_bn[0][0]&#39;]      
  n)                                                                                               
                                                                                                   
- max_pooling2d_13 (MaxPooling2D  (None, 28, 28, 256)  0          [&#39;conv2_block2_out[0][0]&#39;]       
- )                                                                                                
+ max_pooling2d (MaxPooling2D)   (None, 28, 28, 256)  0           [&#39;conv2_block2_out[0][0]&#39;]       
                                                                                                   
  conv2_block3_3_conv (Conv2D)   (None, 28, 28, 256)  16640       [&#39;conv2_block3_2_relu[0][0]&#39;]    
                                                                                                   
- conv2_block3_out (Add)         (None, 28, 28, 256)  0           [&#39;max_pooling2d_13[0][0]&#39;,       
+ conv2_block3_out (Add)         (None, 28, 28, 256)  0           [&#39;max_pooling2d[0][0]&#39;,          
                                                                   &#39;conv2_block3_3_conv[0][0]&#39;]    
                                                                                                   
  conv3_block1_preact_bn (BatchN  (None, 28, 28, 256)  1024       [&#39;conv2_block3_out[0][0]&#39;]       
@@ -15735,12 +15734,11 @@ ________________________________________________________________________________
  conv3_block4_2_relu (Activatio  (None, 14, 14, 128)  0          [&#39;conv3_block4_2_bn[0][0]&#39;]      
  n)                                                                                               
                                                                                                   
- max_pooling2d_14 (MaxPooling2D  (None, 14, 14, 512)  0          [&#39;conv3_block3_out[0][0]&#39;]       
- )                                                                                                
+ max_pooling2d_1 (MaxPooling2D)  (None, 14, 14, 512)  0          [&#39;conv3_block3_out[0][0]&#39;]       
                                                                                                   
  conv3_block4_3_conv (Conv2D)   (None, 14, 14, 512)  66048       [&#39;conv3_block4_2_relu[0][0]&#39;]    
                                                                                                   
- conv3_block4_out (Add)         (None, 14, 14, 512)  0           [&#39;max_pooling2d_14[0][0]&#39;,       
+ conv3_block4_out (Add)         (None, 14, 14, 512)  0           [&#39;max_pooling2d_1[0][0]&#39;,        
                                                                   &#39;conv3_block4_3_conv[0][0]&#39;]    
                                                                                                   
  conv4_block1_preact_bn (BatchN  (None, 14, 14, 512)  2048       [&#39;conv3_block4_out[0][0]&#39;]       
@@ -15932,12 +15930,11 @@ ________________________________________________________________________________
  conv4_block6_2_relu (Activatio  (None, 7, 7, 256)   0           [&#39;conv4_block6_2_bn[0][0]&#39;]      
  n)                                                                                               
                                                                                                   
- max_pooling2d_15 (MaxPooling2D  (None, 7, 7, 1024)  0           [&#39;conv4_block5_out[0][0]&#39;]       
- )                                                                                                
+ max_pooling2d_2 (MaxPooling2D)  (None, 7, 7, 1024)  0           [&#39;conv4_block5_out[0][0]&#39;]       
                                                                                                   
  conv4_block6_3_conv (Conv2D)   (None, 7, 7, 1024)   263168      [&#39;conv4_block6_2_relu[0][0]&#39;]    
                                                                                                   
- conv4_block6_out (Add)         (None, 7, 7, 1024)   0           [&#39;max_pooling2d_15[0][0]&#39;,       
+ conv4_block6_out (Add)         (None, 7, 7, 1024)   0           [&#39;max_pooling2d_2[0][0]&#39;,        
                                                                   &#39;conv4_block6_3_conv[0][0]&#39;]    
                                                                                                   
  conv5_block1_preact_bn (BatchN  (None, 7, 7, 1024)  4096        [&#39;conv4_block6_out[0][0]&#39;]       
@@ -16043,7 +16040,7 @@ ________________________________________________________________________________
  avg_pool (GlobalAveragePooling  (None, 2048)        0           [&#39;post_relu[0][0]&#39;]              
  2D)                                                                                              
                                                                                                   
- dense_13 (Dense)               (None, 5)            10245       [&#39;avg_pool[0][0]&#39;]               
+ dense (Dense)                  (None, 5)            10245       [&#39;avg_pool[0][0]&#39;]               
                                                                                                   
 ==================================================================================================
 Total params: 23,575,045
@@ -16051,22 +16048,46 @@ Trainable params: 10,245
 Non-trainable params: 23,564,800
 __________________________________________________________________________________________________
 None
-Epoch 1/8
-1/1 - 3s - loss: 1.5140 - accuracy: 0.4000 - 3s/epoch - 3s/step
-Epoch 2/8
-1/1 - 0s - loss: 1.3646 - accuracy: 0.4000 - 231ms/epoch - 231ms/step
-Epoch 3/8
-1/1 - 0s - loss: 1.2566 - accuracy: 0.4000 - 233ms/epoch - 233ms/step
-Epoch 4/8
-1/1 - 0s - loss: 1.1822 - accuracy: 0.6000 - 238ms/epoch - 238ms/step
-Epoch 5/8
-1/1 - 0s - loss: 1.1350 - accuracy: 0.2000 - 241ms/epoch - 241ms/step
-Epoch 6/8
-1/1 - 0s - loss: 1.1063 - accuracy: 0.4000 - 228ms/epoch - 228ms/step
-Epoch 7/8
-1/1 - 0s - loss: 1.0856 - accuracy: 0.4000 - 236ms/epoch - 236ms/step
-Epoch 8/8
-1/1 - 0s - loss: 1.0640 - accuracy: 0.4000 - 248ms/epoch - 248ms/step
+Epoch 1/20
+1/1 - 5s - loss: 1.8630 - accuracy: 0.0000e+00 - 5s/epoch - 5s/step
+Epoch 2/20
+1/1 - 0s - loss: 1.6978 - accuracy: 0.0000e+00 - 260ms/epoch - 260ms/step
+Epoch 3/20
+1/1 - 0s - loss: 1.5584 - accuracy: 0.4000 - 261ms/epoch - 261ms/step
+Epoch 4/20
+1/1 - 0s - loss: 1.4394 - accuracy: 0.6000 - 258ms/epoch - 258ms/step
+Epoch 5/20
+1/1 - 0s - loss: 1.3412 - accuracy: 0.6000 - 266ms/epoch - 266ms/step
+Epoch 6/20
+1/1 - 0s - loss: 1.2644 - accuracy: 0.6000 - 256ms/epoch - 256ms/step
+Epoch 7/20
+1/1 - 0s - loss: 1.2067 - accuracy: 0.6000 - 250ms/epoch - 250ms/step
+Epoch 8/20
+1/1 - 0s - loss: 1.1634 - accuracy: 0.4000 - 252ms/epoch - 252ms/step
+Epoch 9/20
+1/1 - 0s - loss: 1.1281 - accuracy: 0.4000 - 257ms/epoch - 257ms/step
+Epoch 10/20
+1/1 - 0s - loss: 1.0957 - accuracy: 0.4000 - 257ms/epoch - 257ms/step
+Epoch 11/20
+1/1 - 0s - loss: 1.0636 - accuracy: 0.4000 - 262ms/epoch - 262ms/step
+Epoch 12/20
+1/1 - 0s - loss: 1.0310 - accuracy: 0.4000 - 258ms/epoch - 258ms/step
+Epoch 13/20
+1/1 - 0s - loss: 0.9987 - accuracy: 0.4000 - 255ms/epoch - 255ms/step
+Epoch 14/20
+1/1 - 0s - loss: 0.9678 - accuracy: 0.6000 - 256ms/epoch - 256ms/step
+Epoch 15/20
+1/1 - 0s - loss: 0.9393 - accuracy: 0.6000 - 257ms/epoch - 257ms/step
+Epoch 16/20
+1/1 - 0s - loss: 0.9132 - accuracy: 0.8000 - 248ms/epoch - 248ms/step
+Epoch 17/20
+1/1 - 0s - loss: 0.8893 - accuracy: 1.0000 - 256ms/epoch - 256ms/step
+Epoch 18/20
+1/1 - 0s - loss: 0.8667 - accuracy: 1.0000 - 265ms/epoch - 265ms/step
+Epoch 19/20
+1/1 - 0s - loss: 0.8446 - accuracy: 1.0000 - 256ms/epoch - 256ms/step
+Epoch 20/20
+1/1 - 0s - loss: 0.8222 - accuracy: 1.0000 - 250ms/epoch - 250ms/step
 </pre>
 </div>
 </div>
@@ -16080,7 +16101,7 @@ Epoch 8/8
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;keras.callbacks.History at 0x18c5b142ef0&gt;</pre>
+<pre>&lt;keras.callbacks.History at 0x2384c507070&gt;</pre>
 </div>
 
 </div>
